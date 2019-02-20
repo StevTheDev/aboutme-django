@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+
+    <div class="article">
+        <h1 class="article-heading">Finding Prime Numbers</h1>
+
+        <div class="article-paragraph">
+            It's a common lesson early on in one's programming career to 
+            calculate the first n prime numbers using nested loops. It's easy 
+            to understand how you could loop through lesser numbers looking for 
+            factors, and this makes for a great beginner exercise. The hidden
+            reason for it being a great lesson however is that it exposes to us
+            early on to the mathmatical reality of time-complexity. 
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            Considering that we are creating a list of primes, and the Prime 
+            Number Theorem, we can assume that the nth prime of our list is 
+            approximately equal to n * logn(n). Using this method we see that 
+            in order to verify a candidate C as being prime, we must first do 
+            C^2 multiplication operations. For the final candidate 
+            this boils down to O(C^2 * len(C)^2). The total runtime of this 
+            function is approximately equal to the sum:
+            
+        </div>
+
+        <div class="article-paragraph">
+            sum([ (i**2 * i.bit_length()**2) for i in range(2, (n * math.log2(n)))])
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            We can attempt to shortcut some of this runtime by exiting the 
+            loops as soon as possible, or by using clever mathmatics to 
+            preclude certain candidates as being prime. However for large n,
+            even employing these methods will not result in a feasable runtime.
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            When creating this site I wanted to flip the table on would-be 
+            recruiters by putting the programming questions to them! I thought,
+            I'll ask them for the nth prime (n > 100,000) - that will get at 
+            least get a good laugh out of someone if not the opportunity of a 
+            job!. Of course I wanted to generate the primes myself so I thought
+            back to my school assignments and implemented the function above. 
+            An hour later it was clear that I should learn a better way.
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            Enter the book "Applied Cryptography." I really should read more of
+            it. Prime generation is discussed in here, and I've implemented the 
+            Rabin Miller method with all of Bruce's reccomended speed-ups.
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            The results truly are striking
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            First 500 Primes:</br>
+            Method One:</br>
+            Completed in 1.76063 minutes.</br>
+            Method Two:</br>
+            Completed in 0.054124181 seconds.</br>
+            Equal Lists?</br>
+            True</br>
+        </div>
+        <div class="article-paragraph">
+            --
+        </div>
+        <div class="article-paragraph">
+            Second 500 Primes:</br>
+            Method One:</br>
+            Completed in 15.68314 minutes.</br>
+            Method Two:</br>
+            Completed in 0.064820698 seconds.</br>
+            Equal Lists?</br>
+            True</br>
+        </div>
+
+    </div>
+
+{% endblock %}
