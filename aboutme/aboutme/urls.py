@@ -20,5 +20,8 @@ from .views import welcome
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/',include('articles.urls')),
-    path('',welcome,name='aboutme_welcome')
+    path('contact/',include('contact.urls')),
+    path('markdownx/',include('markdownx.urls')),
+    path('home/',welcome,name='aboutme_welcome'),
+    path('',welcome,name='aboutme_welcome'),
 ]
