@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Articles Home
+{% endblock title %}
+
+{% block content %}
+<h1>Articles Home</h1>
+<div class="container">
+    <h2><a href="{% url 'new_article' %}">Write New Article</a></h2>
+</div>
+{% endblock content %}
