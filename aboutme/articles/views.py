@@ -20,6 +20,10 @@ def new_article(request):
         pass
     
 
+def view_article(request, id):
+    article = get_object_or_404(Article, pk = id)
+    return render(request,'articles/articles_view_article.html', {'article':article})
+
 # Create your views here.
 def primes(request):
     return render(request,'articles/primes.html')

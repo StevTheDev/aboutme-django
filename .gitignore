@@ -1,5 +1,7 @@
 venv/
 .vscode/
+/aboutme/static/admin/
+/aboutme/static/markdownx/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
