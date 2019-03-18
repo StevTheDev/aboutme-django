@@ -37,6 +37,10 @@
             </a>
             <li class="nav-item"><a class="nav-link" href={% url 'articles_home' %}>Articles</a></li>
             <li class="nav-item"><a class="nav-link" href={% url 'new_contact_submission' %}>Contact</a></li>
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href={% url 'articles_logout' %}>Logout</a></li>
+            {% endif %}
+        
         </ul>
     </nav>
     {% endblock navigation %}

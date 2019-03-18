@@ -22,6 +22,8 @@ urlpatterns = [
     path('articles/',include('articles.urls')),
     path('contact/',include('contact.urls')),
     path('markdownx/',include('markdownx.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('home/',welcome,name='aboutme_welcome'),
     path('',welcome,name='aboutme_welcome'),
+
 ]
