@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %}
 Articles Home
 {% endblock title %}
 
 {% block content %}
-<h1>Articles Home</h1>
-<div class="container">
-    <h2><a href="{% url 'new_article' %}">Write New Article</a></h2>
+<div class="container card bg-light">
+    <div class="row">
+        <div class="col-12">    
+        <table class="table">
+        <thead>
+            <td>Subject</td>
+            <td>Language</td>
+        </thead>
+        {% for article in articles_list %}
+        <tr>
+            <td>
+                <a href= {% url 'view_article' article.id %} >{{article.title}} by {{ article.author }}</a>
+            </td>
+            <td>{{article.language}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        </div>
+    </div>
 </div>
-{% endblock content %}
+{% endblock content %}  

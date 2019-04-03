@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import primes, articles_home,new_article, view_article
+from .views import articles_home,new_article, view_article
 from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = [
     path('', articles_home, name='articles_home'),

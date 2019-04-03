@@ -1,116 +1,22 @@
 {% extends 'base.html' %}
-{% load markdown_deux_tags %}
-{% block title   %}
-{% endblock title    %}
+{% block title %}
+    {{article.title}} by {{article.author}}
+{% endblock title %}
 
-
+{% block style %}
+{% include 'latexify/stylesheets.html' %}
+{% endblock style %}
 
 {% block content %}
-    <h1>Generating Prime Numbers <em>- Quickly!</em></h1>
-<p>We probably all have at some point written a function that spits out the first <em>n</em> prime numbers. It&#39;s easy to conceive the problem and develop a simple looping function which verifies whether a number has only one factor. This is a great exercise to explore the fundamentals of looping, however if you wanted more than a few primes you&#39;d soon find this solution lacking.  Considering that to check each number n​&#39;s factors takes O(n^2)​ operations, to find all prime numbers below a number m​ takes O(m^2 !)​ operations. <em>Not Quick</em>, in other words.</p>
-<p>Wanting to get a list of larger primes, I had to go about things differently. </p>
-<p>I&#39;ve got a book on my shelf by Bruce Schneier called <em>Applied Cryptography (And what a book it is)</em>, pulled it off to see what it had to say. Sure enough, there&#39;s a section dedicated to &#39;Generating Primes&#39; with some background reading and description of a few methods. The Rabin-Miller method seemed the natural choice: </p>
-<blockquote><p>The algorithm everyone uses - it&#39;s easy - was developed by Michael Rabin, based in part on Gary Miller&#39;s ideas.</p>
-</blockquote>
-<p>Say no more, I&#39;m convinced. Of course, this method relies on clever mathematics and I wouldn&#39;t be able to prove it. However after implementation, I was able to confirm it&#39;s accuracy by comparing my results against a list of known primes. Based on the description in the book, here&#39;s my implementation:</p>
-<pre><code class='language-python' lang='python'>import random
-
-def rabin_miller(p, t=5):
-    &#39;&#39;&#39; Test p for primality using t rounds
-    of the Rabin-Miller Primality Test&#39;&#39;&#39;
-    
-    # First, basic test conditions:
-    if p &lt; 2:
-        return False
-    elif p % 2 == 0:
-        return False
-
-    # Second, check divisibility against some known primes
-    known_primes = [
-        2,  3,  5,  7,  11, 13, 17, 19, 23, 29,
-        31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 
-        73, 79, 83, 89, 97, 101, 103, 107, 109, 
-        113, 127, 131, 137, 139, 149, 151, 157,
-        163, 167, 173, 179, 181, 191, 193, 197,
-        199, 211, 223, 227, 229, 233, 239, 241, 
-        251, 257]
-
-    for prime in known_primes:
-        if p in known_primes:
-            return True
-        elif p % prime == 0:
-            return False
-
-    # Now for the Rabin-Miller part
-    
-    # Calculate b and m
-    # where b is the number of times 2 divides p-1
-    # such that 2**b divides p-1 
-    # and p = 1 + (2**b) * m    
-    m = p-1
-    b = 0
-    while m % 2 == 0:
-        m = int(m / 2)
-        b += 1
-        
-	# Function implementing the Rabin-Miller test 
-    def test():
-        a = random.randint(2,p-1)
-        z = pow(a,m,p) # pow(a,m,p) ==  a**m % p 
-        if z == 1 or z == (p-1):
-            return True
-        for j in range(b):
-            if j &gt; 0 and z == 1:
-                return False
-            elif (j+1) &lt; b and z != (p-1):        
-                z = pow(z,2,p)
-                continue        
-            elif (j+1) == b and z != (p-1):
-                return False
-            elif z == (p-1):
-                return True
-            
-	# Run the Rabin-Miller test t times
-    result = True
-    for _ in range(t):
-        result = test()
-
-    return result
-</code></pre>
-<p>The great thing about this method is that its runtime is largely independent of the number being tested. Finding b and m takes O(log_2 n) time,  the rest of the test occurs in constant time based on </p>
-<figure><table>
-<thead>
-<tr><th style='text-align:right;' >Generating:</th><th style='text-align:center;' >Factorization Loop Method</th><th style='text-align:center;' >Rabin-Miller Method</th></tr></thead>
-<tbody><tr><td style='text-align:right;' >The First 500 Primes</td><td style='text-align:center;' >106 seconds</td><td style='text-align:center;' >0.05 seconds</td></tr><tr><td style='text-align:right;' >The Second 500 Primes</td><td style='text-align:center;' >15.7 minutes</td><td style='text-align:center;' >0.06 seconds</td></tr></tbody>
-</table></figure>
-<p>According to Schneier, if you want to find a huge prime it&#39;s practical to pick one at random and test it using this method. If it fails, just pick a new number and try again. He claims the Sparc II super computer - <a href='https://en.wikipedia.org/wiki/SPARC#Implementations'>90&#39;s era tech</a> - could find a 1024 bit prime number using this method in about 5 minutes on average. </p>
-<p>I modified my code a bit so that m​ is cast as a Decimal type during division to enable precision with large numbers. Here&#39;s the setup:</p>
-<pre><code class='language-python' lang='python'>import random, time
-from decimal import *
-
-def rabin_miller(p, t=5):
-# ... Code from Above ...
-
-def large_prime(bit_length=1024):
-    while True:
-        n = random.getrandbits(bit_length)
-        if rabin_miller(n):
-            break
-    return n
-    
-average_time = 0
-for i in range(1000):
-    start = time.perf_counter_ns()
-    n = large_prime(1024)
-    stop = time.perf_counter_ns()
-    duration = stop - start
-
-    average_time = ((average_time * i) + duration) / (i + 1)
-    
-print(f&#39;Found 1024 bit primes in {(average_time/ 1000000000)} seconds on average.&#39;)
-</code></pre>
-<p>My decade old PC handily bested the Sparc II with an average time of 5.2 seconds. </p>
-<p>Moore&#39;s Law</p>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-lg-6 card bg-light text-dark article-body">
+        {% include body_template_path %}
+        </div>
+        <div class="col-md-7 col-lg-6 card article-code">
+        {% autoescape off %} {{ article_code | safe }} {% endautoescape %}
+        </div>
+    </div>
+</div>
+{% include "latexify/scripts.html" %}
 {% endblock content %}

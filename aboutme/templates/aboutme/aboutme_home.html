@@ -1,64 +1,38 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block title %}
 Welcome
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+
+<div class="container">
         <div class="row">
-            <div class="col-md-4" style="margin-bottom:20px;">
+            <div class="col-sm-12 bg-light text-dark aboutme">
                 <h1 class="font-weight-bolder">Steven Fitzpatrick</h1>
-                <h2 class="font-weight-lighter">StevTheDev</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="container ">
-        <div class="row">
-
-            <div class="bio col-sm-4">
-                <h2>About Me</h2>
-                <div class="container">
-                    <div class="row">
-                        <h3>Find me on online <small>@StevTheDev</small></h3>
-                        <div class="col-12"></div>
-                        <div class="col-12"><a href="http://github.com/StevTheDev">On Github</a></div>
-                        <div class="col-12"><a href="http://twitter.com/StevTheDev">On Twitter</a></div>
-                    </div>
+                <div class="">
+                    <h2 class="aboutme-links font-weight-lighter">StevTheDev</h2>
+                    <a class="aboutme-links" href="http://github.com/StevTheDev">
+                        <img src="{% static 'icons/GitHub-Mark.svg' %}" alt="On Github"></a>
+                    <a class="aboutme-links" href="http://twitter.com/StevTheDev">
+                        <img src="{% static 'icons/Twitter_Logo_Blue.svg' %}" alt="On Twitter"></a>
                 </div>
             </div>
 
-            <div class="photo col-sm-4">
-                <h2>Photo Div</h2>
+            <div class="col-sm-12 d-flex justify-content-end sm-justify-content-start photo-div">
+                <img src="{% static 'images/welcome.jpg' %}" class="photo" alt="Hello World!">
             </div>
 
-            <div class="info col-sm-4 ">
+            <div class="col-sm-12 bg-light text-dark info">
+
                 <div class="row">
-                    <h3>Education<h3>
                     <div class="col-12">
-                        <p>Some college until 2015, including classes covering:</p>
-                        <ul>
-                            <li>Programming Basics</li>
-                            <li>Data Structures</li>
-                            <li>Databases</li>
-                            <li>Algorithms</li>
-                            <li>Operating Systems</li>
-                        </ul>
+                        {% include 'aboutme/aboutme_home_body.html' %}
                     </div>
                 </div>
-                <div class="row">
-                    <h3>Certifications</h3>
-                    <div class="col-12 font-weight-bold">CompTIA Security+ <small>Accquired March 2017</small></div>
-                    <div class="col-12 font-weight-bold">CompTIA Network+ <small>Accquired November 2017</small></div>
-                </div>
-                <div class="row">
-                    <h3>Work Experience</h3>
-                    <div class="col-12 font-weight-bold">IT Administrator - Aromatique, Inc <small>October 2017 - March 2019</small></div>
-                </div>
             </div>
-
         </div>
     </div>
+</div>
 
 {% endblock %}

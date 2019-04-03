@@ -1,0 +1,89 @@
+
+.article-code {
+    background: #272822; 
+    color: #f8f8f2;
+}
+
+.aboutme {
+    border-radius: 3px 3px 0px 0px;
+}
+
+.aboutme_banner {
+    height: 800px;
+}
+
+.aboutme h1 {
+    padding-top: 0.5rem;
+}
+
+.aboutme h2 {
+    padding-left: 0.5rem;
+}
+
+.aboutme-links {
+    display: inline;
+}
+.aboutme img {
+    height:33px;
+    padding-left:1rem;
+    margin-top:-0.1rem;
+    padding-right:0.2rem;
+    margin-bottom: 1rem;
+
+}
+
+.info {
+    border-radius: 0 0 3px 3px;
+}
+.info h1 {
+    padding: 1rem 0 0rem .5rem;
+}
+
+.photo-div {
+    overflow: hidden;
+}
+
+/*
+    xs (for phones - screens less than 768px wide)
+    sm (for tablets - screens equal to or greater than 768px wide)
+    md (for small laptops - screens equal to or greater than 992px wide)
+    lg (for laptops and desktops - screens equal to or greater than 1200px wide)
+
+*/
+
+@media only screen and (max-width: 768px) {
+    .photo {
+        object-fit:cover;
+        height: 40vh;
+        transform:scale(1.1,1.1);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .photo {
+        object-fit:cover;
+        height: 40vh;
+        transform: translate(0%,0px) scale(1.5,1.5);
+    }
+}
+
+@media only screen and (min-aspect-ratio: 16/17 ) {
+    .photo {
+        width:inherit;
+        transform: scale(1.1,1.1)
+        /*
+        width:inherit;
+        object-fit:cover;
+        align-self: inherit;
+        transform: translate(-80%,0px) scale(2.8,2.8); */
+    }
+}
+
+
+/*
+.photo {
+    object-fit:cover;
+    height: 40vh;
+    /* transform: translate(-40%,0px) scale(2,2.1); 
+}
+*/

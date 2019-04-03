@@ -1,5 +1,5 @@
 <h1>Generating Prime Numbers <em>- Quickly!</em></h1>
-<p>We probably all have at some point written a function that spits out the first <em>n</em> prime numbers. It&#39;s easy to conceive the problem and develop a simple looping function which verifies whether a number has only one factor. This is a great exercise to explore the fundamentals of looping, however if you wanted more than a few primes you&#39;d soon find this solution lacking.  Considering that to check each number n​&#39;s factors takes O(n^2)​ operations, to find all prime numbers below a number m​ takes O(m^2 !)​ operations. <em>Not Quick</em>, in other words.</p>
+<p>We probably all have at some point written a function that spits out the first <em>n</em> prime numbers. It&#39;s easy to conceive the problem and develop a simple looping function which verifies whether a number has only one factor. This is a great exercise to explore the fundamentals of looping, however if you wanted more than a few primes you&#39;d soon find this solution lacking.  Considering that to check each number n&#39;s factors takes O(n^2) operations, to find all prime numbers below a number m takes O(m^2 !) operations. <em>Not Quick</em>, in other words.</p>
 <p>Wanting to get a list of larger primes, I had to go about things differently. </p>
 <p>I&#39;ve got a book on my shelf by Bruce Schneier called <em>Applied Cryptography (And what a book it is)</em>, pulled it off to see what it had to say. Sure enough, there&#39;s a section dedicated to &#39;Generating Primes&#39; with some background reading and description of a few methods. The Rabin-Miller method seemed the natural choice: </p>
 <blockquote><p>The algorithm everyone uses - it&#39;s easy - was developed by Michael Rabin, based in part on Gary Miller&#39;s ideas.</p>
@@ -76,7 +76,7 @@ def rabin_miller(p, t=5):
 <tbody><tr><td style='text-align:right;' >The First 500 Primes</td><td style='text-align:center;' >106 seconds</td><td style='text-align:center;' >0.05 seconds</td></tr><tr><td style='text-align:right;' >The Second 500 Primes</td><td style='text-align:center;' >15.7 minutes</td><td style='text-align:center;' >0.06 seconds</td></tr></tbody>
 </table></figure>
 <p>According to Schneier, if you want to find a huge prime it&#39;s practical to pick one at random and test it using this method. If it fails, just pick a new number and try again. He claims the Sparc II super computer - <a href='https://en.wikipedia.org/wiki/SPARC#Implementations'>90&#39;s era tech</a> - could find a 1024 bit prime number using this method in about 5 minutes on average. </p>
-<p>I modified my code a bit so that m​ is cast as a Decimal type during division to enable precision with large numbers. Here&#39;s the setup:</p>
+<p>I modified my code a bit so that m is cast as a Decimal type during division to enable precision with large numbers. Here&#39;s the setup:</p>
 <pre><code class='language-python' lang='python'>import random, time
 from decimal import *
 

@@ -12,15 +12,17 @@ New Article
 {% block content %}
 <div class="container">
     <div class="row">
-
-    <form action="{% url 'new_article' %}" method="post">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <button type="submit" class="btn">Submit</button>
-    </form>
-
+        <div class="col-10 offset-1 bg-light text-dark">
+            <form action="{% url 'new_article' %}" 
+                method="post"
+                enctype="multipart/form-data"
+                >
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
-    {{form.media}}
 </div>
 
 {% endblock content %}
