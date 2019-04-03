@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'articles',
     'contact',
     'crispy_forms',
-    'markdownx',
-    'markdown_deux',
     'latexify',
 
 ]
