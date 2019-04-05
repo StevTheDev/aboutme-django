@@ -1,3 +1,5 @@
 Django==2.1.7
 django-crispy-forms==1.7.2
 django-latexify==0.2.1
+PyYAML==5.1
+mod-wsgi==4.6.5
