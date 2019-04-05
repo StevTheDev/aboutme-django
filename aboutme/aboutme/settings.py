@@ -9,29 +9,26 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
+import os, yaml
 
-import os
-import json
+config_path = os.path.join('/','home','stev','AboutMe','aboutme_django_config.yaml')
 
-with open('/etc/aboutme_django_config.json') as config_file:
-    config = json.load(config_file)
+with open(config_path) as config_file:
+    config = yaml.safe_load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j(vb7ds%++oh3mr9esehx59d_9_r!c20y(0rsf@!b=dphhno6f'
-# hIf%c5h3%wF51hs*wph!hxT5CSyb0Y8NV8Ca*lmMHQBBLNgLj2TZote2lx8ccEIHNYg^9X%YOcL*1lw@MbQ^v4LfFh72XI5T&Hw4
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.1.2']
-
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -113,17 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -139,9 +130,9 @@ LOGIN_URL = "articles_login"
 LOGIN_REDIRECT_URL="articles_home"
 LOGOUT_REDIRECT_URL="articles_home"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config['EMAIL_USER']
-EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = config['EMAIL_USER']
+# EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
