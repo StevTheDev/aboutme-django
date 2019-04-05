@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import json
+
+with open('/etc/aboutme_django_config.json') as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,6 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'j(vb7ds%++oh3mr9esehx59d_9_r!c20y(0rsf@!b=dphhno6f'
+# hIf%c5h3%wF51hs*wph!hxT5CSyb0Y8NV8Ca*lmMHQBBLNgLj2TZote2lx8ccEIHNYg^9X%YOcL*1lw@MbQ^v4LfFh72XI5T&Hw4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +46,7 @@ INSTALLED_APPS = [
     'contact',
     'crispy_forms',
     'latexify',
-
+    'mod_wsgi.server',
 ]
 
 MIDDLEWARE = [
@@ -128,9 +133,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 
-
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_URL = "articles_login"
 LOGIN_REDIRECT_URL="articles_home"
 LOGOUT_REDIRECT_URL="articles_home"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config['EMAIL_USER']
+EMAIL_HOST_PASSWORD = config['EMAIL_PASSWORD']
