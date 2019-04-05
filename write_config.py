@@ -1,6 +1,8 @@
 import os, yaml, string, secrets
 
-config_path = os.path.join('/','etc','aboutme_django_config.yml')
+# Initialize Configuration File 
+
+config_path = os.path.join('/','home','stev','AboutMe','aboutme_django_config.yaml')
 charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 
 with open(config_path, 'w') as config_file:
