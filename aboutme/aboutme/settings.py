@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os, yaml
 
-config_path = os.path.join('/','home','stev','AboutMe','aboutme_django_config.yaml')
+config_path = os.path.join('/','home','stev','AboutMe','config','django_secrets.yaml')
 
 with open(config_path) as config_file:
     config = yaml.safe_load(config_file)
