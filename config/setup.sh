@@ -1,16 +1,9 @@
 #!/bin/bash
 
-echo "Configuring SSH"
-sudo mv /home/stev/AboutMe/config/sshd_config /etc/ssh/
-mkdir /home/stev/.ssh
-mv /home/stev/AboutMe/config/authorized_keys /home/stev/.ssh/
-chmod -w /home/stev/.ssh/authorized_keys
-sudo systemctl restart ssh
-
 # Update then install required packages
 echo "Installing Software Requirements"
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install -y python3 python3-dev python3-venv python-pip apache2 apache2-dev git
 echo "Done."
 
@@ -81,14 +74,24 @@ sudo /home/stev/AboutMe/venv/bin/python3 /home/stev/AboutMe/aboutme/manage.py ru
 sudo a2enmod wsgi
 echo "Done."
 
-echo "Enable Apache Site"
+echo "Enabling Apache Site"
 sudo a2ensite aboutme-django.conf
 sudo a2dissite 000-default.conf
 sudo systemctl restart apache2
+echo "Done."
 
-echo "Activate Firewall"
+echo "Configuring SSH"
+sudo mv /home/stev/AboutMe/config/sshd_config /etc/ssh/
+mkdir /home/stev/.ssh
+mv /home/stev/AboutMe/config/authorized_keys /home/stev/.ssh/
+chmod -w /home/stev/.ssh/authorized_keys
+sudo systemctl restart ssh
+echo "Done."
+
+echo "Activating Firewall"
 sudo ufw allow http
 sudo ufw allow ssh
 sudo ufw enable
+echo "Done."
 
 echo "Setup Complete"
