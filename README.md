@@ -1,2 +1,2 @@
-# Steven Fitzpatrick <small>StevTheDev</small>
-
+# Steven Fitzpatrick
+### StevTheDev
