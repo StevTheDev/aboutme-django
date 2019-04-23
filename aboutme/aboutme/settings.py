@@ -13,22 +13,21 @@ import os, yaml
 
 config_path = os.path.join('/','home','stev','AboutMe','config','django_secrets.yaml')
 
-with open(config_path) as config_file:
-    config = yaml.safe_load(config_file)
+#with open(config_path) as config_file:
+#    config = yaml.safe_load(config_file)
+#SECRET_KEY = config['SECRET_KEY']
+DEBUG = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['SECRET_KEY']
-
+SECRET_KEY = '21786574682365192636442239186610766976465191852648'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['0.0.0.0']
 
 # Application definition
 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'contact',
     'crispy_forms',
     'latexify',
-    'mod_wsgi.server',
 ]
 
 MIDDLEWARE = [
