@@ -1,9 +1,4 @@
 
-.article-code {
-    background: #272822; 
-    color: #f8f8f2;
-}
-
 .aboutme {
     border-radius: 3px 3px 0px 0px;
 }
@@ -50,6 +45,11 @@
 
 .photo-div {
     overflow: hidden;
+}
+
+.article-code {
+    background: #272822; 
+    color: #f8f8f2;
 }
 
 .contact-me {
