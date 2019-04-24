@@ -23,12 +23,18 @@
 .aboutme-links {
     display: inline;
 }
+
 .aboutme img {
     height:33px;
     padding-left:1rem;
     margin-top:-0.1rem;
     padding-right:0.2rem;
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 320px) {
+.aboutme img {
+    height:30px;
 
 }
 
@@ -59,7 +65,7 @@
 
 .contact-me form button {
     float: right;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 /*
