@@ -34,6 +34,8 @@
 
 .info {
     border-radius: 0 0 3px 3px;
+    margin-bottom: 5rem;
+    padding-bottom: 1rem;
 }
 .info h1 {
     padding: 1rem 0 0rem .5rem;
@@ -41,6 +43,23 @@
 
 .photo-div {
     overflow: hidden;
+}
+
+.contact-me {
+    border-radius:  3px;
+    margin-bottom: 5rem;
+}
+
+.contact-me h2 {
+    padding-top: 0.5rem; 
+}
+
+.contact-me form {
+}
+
+.contact-me form button {
+    float: right;
+    margin-bottom: 0.5rem;
 }
 
 /*
