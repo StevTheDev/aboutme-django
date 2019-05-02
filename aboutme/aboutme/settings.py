@@ -17,7 +17,7 @@ DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Initialize Configuration File 
-config_path = os.path.join('aboutme-django','config','django_secrets.yml')
+config_path = os.path.join('/','aboutme-django','config','django_secrets.yml')
 
 if not os.path.isfile(config_path):
     open(config_path,'a').close() # Create an empty file
