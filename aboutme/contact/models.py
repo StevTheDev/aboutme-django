@@ -9,7 +9,7 @@ class ContactSubmissionQuerySet(models.QuerySet):
 # Create your models here.
 class ContactSubmission(models.Model):
     return_address = models.EmailField(
-        verbose_name='Please Enter YOUR Email Address'
+        verbose_name='Email Address'
     )
     submission_time = models.DateTimeField(auto_now_add=True)
     message = models.CharField(max_length=500)

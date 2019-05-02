@@ -1,9 +1,4 @@
 
-.article-code {
-    background: #272822; 
-    color: #f8f8f2;
-}
-
 .aboutme {
     border-radius: 3px 3px 0px 0px;
 }
@@ -23,24 +18,52 @@
 .aboutme-links {
     display: inline;
 }
+
 .aboutme img {
     height:33px;
     padding-left:1rem;
     margin-top:-0.1rem;
     padding-right:0.2rem;
     margin-bottom: 1rem;
+}
 
+@media only screen and (max-width: 320px) {
+    .aboutme img {
+        height:22px;
+    }
 }
 
 .info {
     border-radius: 0 0 3px 3px;
+    margin-bottom: 5rem;
+    padding-bottom: 1rem;
 }
+
 .info h1 {
     padding: 1rem 0 0rem .5rem;
 }
 
 .photo-div {
     overflow: hidden;
+}
+
+.article-code {
+    background: #272822; 
+    color: #f8f8f2;
+}
+
+.contact-me {
+    border-radius:  3px;
+    margin-bottom: 5rem;
+}
+
+.contact-me h2 {
+    padding-top: 0.5rem; 
+}
+
+.contact-me form button {
+    float: right;
+    margin-bottom: 0.75rem;
 }
 
 /*
@@ -70,20 +93,6 @@
 @media only screen and (min-aspect-ratio: 16/17 ) {
     .photo {
         width:inherit;
-        transform: scale(1.1,1.1)
-        /*
-        width:inherit;
-        object-fit:cover;
-        align-self: inherit;
-        transform: translate(-80%,0px) scale(2.8,2.8); */
+        transform: scale(1.1,1.1);
     }
 }
-
-
-/*
-.photo {
-    object-fit:cover;
-    height: 40vh;
-    /* transform: translate(-40%,0px) scale(2,2.1); 
-}
-*/
