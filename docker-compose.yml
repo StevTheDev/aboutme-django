@@ -1,6 +1,5 @@
-version: "3.7"
+version: "3"
 services:
-
   aboutme-django:
     build: .
     expose:
@@ -20,4 +19,3 @@ services:
       - ./config/uwsgi-proxy:/etc/nginx/conf.d
     depends_on:
       - aboutme-django
-
