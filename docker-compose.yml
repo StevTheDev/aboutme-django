@@ -12,7 +12,7 @@ services:
       - "5432"
     
   aboutme-proxy:
-    image: nginx:alpine
+    image: nginx
     ports:
       - "8000:8000"
     volumes:
