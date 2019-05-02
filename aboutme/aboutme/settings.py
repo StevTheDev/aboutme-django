@@ -21,7 +21,7 @@ config_path = os.path.join('aboutme-django','config','django_secrets.yml')
 
 if not os.path.isfile(config_path):
     open(config_path,'a').close() # Create an empty file
-    os.chmod(config_path,640) # Set permissions on file
+    os.chmod(config_path,0o640) # Set permissions on file
     with open(config_path, 'w') as config_file: # Write secret key
         charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         config_file.write( f'SECRET_KEY: {"".join(secrets.choice(charset) for i in range(50))}\n' )
