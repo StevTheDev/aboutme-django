@@ -1,6 +1,5 @@
-version: "3.7"
+version: "3"
 services:
-
   aboutme-django:
     build: .
     expose:
@@ -13,11 +12,10 @@ services:
       - "5432"
     
   aboutme-proxy:
-    image: nginx:alpine
+    image: nginx
     ports:
       - "8000:8000"
     volumes:
       - ./config/uwsgi-proxy:/etc/nginx/conf.d
     depends_on:
       - aboutme-django
-
