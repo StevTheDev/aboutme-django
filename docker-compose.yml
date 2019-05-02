@@ -16,6 +16,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./config/uwsgi-proxy:/etc/nginx/conf
+      - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
     depends_on:
       - aboutme-django
