@@ -1,11 +1,11 @@
-FROM python:3
+FROM python:3-alpine
 
-WORKDIR /AboutMe/
+WORKDIR /aboutme-django/
 
-COPY . /AboutMe/
+COPY . /aboutme-django/
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt 
 
-EXPOSE 80
+EXPOSE 52520
 
-CMD [ "uwsgi", "/AboutMe/uWSGI.ini"]
+CMD [ "uwsgi", "/config/uWSGI.ini"]
