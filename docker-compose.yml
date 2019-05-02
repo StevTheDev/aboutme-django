@@ -3,8 +3,6 @@ services:
 
   aboutme-django:
     build: .
-    volumes:
-      - ./project:/src
     expose:
       - "8000"
     restart: always
@@ -23,4 +21,3 @@ services:
     depends_on:
       - aboutme-django
 
-      
