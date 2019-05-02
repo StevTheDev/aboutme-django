@@ -9,25 +9,34 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import os, yaml
+import os, string, secrets, yaml
 
-config_path = os.path.join('/','home','stev','AboutMe','config','django_secrets.yaml')
-
-#with open(config_path) as config_file:
-#    config = yaml.safe_load(config_file)
-#SECRET_KEY = config['SECRET_KEY']
 DEBUG = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Initialize Configuration File 
+config_path = os.path.join(BASE_DIR,'django_secrets.yml')
+
+if not os.is_file(config_path):
+    open(config_path).close() # Create an empty file
+    os.chmod(config_path,'0640') # Set permissions on file
+    with open(config_path, 'w') as config_file: # Write secret key
+        charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+        config_file.write( f'SECRET_KEY: {"".join(secrets.choice(charset) for i in range(50))}\n' )
+    
+with open(config_path, 'r') as config_file:
+    config = yaml.safe_load(config_file)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '21786574682365192636442239186610766976465191852648'
+
+SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['aboutme-django']
 
 # Application definition
 
@@ -81,8 +90,11 @@ WSGI_APPLICATION = 'aboutme.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'aboutme-data',
+        'PORT': '5432',
     }
 }
 
