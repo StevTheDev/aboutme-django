@@ -6,6 +6,6 @@ COPY . /aboutme-django/
 
 RUN pip install --no-cache-dir -r requirements.txt 
 
-EXPOSE 52520
+EXPOSE 8000
 
 CMD [ "uwsgi", "/config/uWSGI.ini"]
