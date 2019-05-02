@@ -19,8 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Initialize Configuration File 
 config_path = os.path.join(BASE_DIR,'django_secrets.yml')
 
-if not os.is_file(config_path):
-    open(config_path).close() # Create an empty file
+if not os.path.isfile(config_path):
+    open(config_path,'a').close() # Create an empty file
     os.chmod(config_path,'0640') # Set permissions on file
     with open(config_path, 'w') as config_file: # Write secret key
         charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
