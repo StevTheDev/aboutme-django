@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os, string, secrets, yaml
+from django.core import management
 
 DEBUG = True
 
@@ -134,6 +135,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_ROOT = '/aboutme-django/aboutme/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
+management.call_command('collectstatic', verbosity=0, interactive=False)
+
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
