@@ -19,9 +19,9 @@ services:
       - "8000:8000"
     volumes:
       - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
-      - django-static
+      - django-static:/aboutme-django/static/
     depends_on:
-      - aboutme-django:/aboutme-django/static/
+      - aboutme-django
 
 volumes:
   django-static:
