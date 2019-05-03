@@ -4,6 +4,7 @@ WORKDIR /aboutme-django/
 
 COPY . .
 
+RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
 USER uwsgi:uwsgi
 
 RUN pip install --no-cache-dir -r requirements.txt && \
