@@ -2,6 +2,8 @@ version: "3"
 services:
   aboutme-django:
     build: .
+    volumes:
+      - django-static:/aboutme-django/static
     expose:
       - "8080"
     restart: always
@@ -17,5 +19,6 @@ services:
       - "8000:8000"
     volumes:
       - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
+      - django-static
     depends_on:
       - aboutme-django
