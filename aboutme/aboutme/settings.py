@@ -37,7 +37,7 @@ with open(config_path, 'r') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['192.168.1.14']
+ALLOWED_HOSTS = ['192.168.1.14'] 
 
 # Application definition
 
@@ -132,7 +132,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-STATIC_ROOT = '/aboutme-django/aboutme/static/'
+STATIC_ROOT = '/aboutme-django/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 
