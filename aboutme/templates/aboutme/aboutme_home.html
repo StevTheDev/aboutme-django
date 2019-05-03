@@ -7,28 +7,26 @@ Welcome
 {% block content %}
 
 <div class="container">
-        <div class="row">
-            <div class="col-sm-12 bg-light text-dark aboutme">
-                <h1 class="font-weight-bolder">Steven Fitzpatrick</h1>
-                <div class="">
-                    <h2 class="aboutme-links font-weight-lighter">StevTheDev</h2>
-                    <a class="aboutme-links" href="http://github.com/StevTheDev">
-                        <img src="{% static 'icons/GitHub-Mark.svg' %}" alt="On Github"></a>
-                    <a class="aboutme-links" href="http://twitter.com/StevTheDev">
-                        <img src="{% static 'icons/Twitter_Logo_Blue.svg' %}" alt="On Twitter"></a>
-                </div>
+    <div class="row">
+        <div class="col-sm-12 bg-light text-dark aboutme">
+            <h1 class="font-weight-bolder">Steven Fitzpatrick</h1>
+            <div class="">
+                <h2 class="aboutme-links font-weight-lighter">StevTheDev</h2>
+                <a class="aboutme-links" href="http://github.com/StevTheDev">
+                    <img src="{% static 'icons/GitHub-Mark.svg' %}" alt="On Github"></a>
+                <a class="aboutme-links" href="http://twitter.com/StevTheDev">
+                    <img src="{% static 'icons/Twitter_Logo_Blue.svg' %}" alt="On Twitter"></a>
             </div>
+        </div>
 
-            <div class="col-sm-12 d-flex justify-content-end sm-justify-content-start photo-div">
-                <img src="{% static 'images/welcome.jpg' %}" class="photo" alt="Hello World!">
-            </div>
+        <div class="col-sm-12 d-flex justify-content-end sm-justify-content-start photo-div">
+            <img src="{% static 'images/welcome.jpg' %}" class="photo" alt="Hello World!">
+        </div>
 
-            <div class="col-sm-12 bg-light text-dark info">
-
-                <div class="row">
-                    <div class="col-12">
-                        {% include 'aboutme/aboutme_home_body.html' %}
-                    </div>
+        <div class="col-sm-12 bg-light text-dark info">
+            <div class="row">
+                <div class="col-12">
+                    {% include 'aboutme/aboutme_home_body.html' %}
                 </div>
             </div>
         </div>
