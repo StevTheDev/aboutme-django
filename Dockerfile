@@ -4,6 +4,8 @@ WORKDIR /aboutme-django/
 
 COPY . .
 
+USER uwsgi:uwsgi
+
 RUN pip install --no-cache-dir -r requirements.txt && \
     python ./aboutme/manage.py collectstatic
 
