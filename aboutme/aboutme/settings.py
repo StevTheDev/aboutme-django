@@ -135,7 +135,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_ROOT = '/aboutme-django/aboutme/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
-management.call_command('collectstatic')
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
