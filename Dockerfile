@@ -1,11 +1,12 @@
 FROM python:3
 
+RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
+
+USER uwsgi:uwsgi
+
 WORKDIR /aboutme-django/
 
 COPY . .
-
-RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi
-USER uwsgi:uwsgi
 
 RUN python -m venv venv && \
     .\venv\bin\activate.sh && \
