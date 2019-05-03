@@ -25,8 +25,9 @@ if not os.path.isfile(config_path):
     os.chmod(config_path,0o640) # Set permissions on file
     shutil.chown(config_path,group='uwsgi')
     with open(config_path, 'w') as config_file: # Write secret key
-        charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         letters = 'abcdefghijklmnopqrstuvwxyz'
+        charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+        # Make sure the first character is legal for a yml token
         config_file.write( f'SECRET_KEY: {"".join(secrets.choice(letters) for i in range(1))}{"".join(secrets.choice(charset) for i in range(49))}\n' )
     
 with open(config_path, 'r') as config_file:
