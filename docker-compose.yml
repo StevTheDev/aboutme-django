@@ -3,7 +3,7 @@ services:
   aboutme-django:
     build: .
     volumes:
-      - django-static:/aboutme-django/static
+      - django-static:/aboutme-django/static/
     expose:
       - "8080"
     restart: always
