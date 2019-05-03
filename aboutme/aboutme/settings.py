@@ -36,7 +36,7 @@ with open(config_path, 'r') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['aboutme-django']
+ALLOWED_HOSTS = ['aboutme-proxy']
 
 # Application definition
 
