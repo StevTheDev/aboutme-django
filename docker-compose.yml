@@ -22,3 +22,7 @@ services:
       - django-static
     depends_on:
       - aboutme-django
+
+volumes:
+  django-static:
+  
