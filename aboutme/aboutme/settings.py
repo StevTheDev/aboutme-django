@@ -40,7 +40,7 @@ with open(config_path, 'r') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['3.15.34.11'] 
+ALLOWED_HOSTS = ['stevthedev.com'] 
 
 # Application definition
 
