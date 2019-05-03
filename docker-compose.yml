@@ -12,6 +12,8 @@ services:
     image: postgres
     ports:
       - "5432"
+    volumes:
+      - database:/var/lib/postgresql/data
     
   aboutme-proxy:
     image: nginx
@@ -25,4 +27,4 @@ services:
 
 volumes:
   django-static:
-  
+  database:
