@@ -18,7 +18,7 @@ services:
   aboutme-proxy:
     image: nginx
     ports:
-      - "8000:8000"
+      - "80:8000"
     volumes:
       - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
       - django-static:/aboutme-django/static/
