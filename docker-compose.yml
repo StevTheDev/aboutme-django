@@ -21,7 +21,7 @@ services:
       - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
       - django-static
     depends_on:
-      - aboutme-django
+      - aboutme-django:/aboutme-django/static/
 
 volumes:
   django-static:
