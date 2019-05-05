@@ -3,8 +3,7 @@ services:
   aboutme-django:
     build:
       context: .
-      args:
-        no-cache: true
+      no-cache: true
     volumes:
       - django-static:/aboutme-django/static/
       - django-media:/aboutme-django/aboutme/
