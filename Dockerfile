@@ -1,10 +1,10 @@
-FROM python:3-alpine
+FROM python:3
 
 WORKDIR /aboutme-django/
 
 COPY . .
 
-RUN addgroup -S uwsgi && adduser -S -G uwsgi uwsgi && \
+RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi && \
     pip install --no-cache-dir -r requirements.txt && \
     python ./aboutme/manage.py collectstatic && \
     chown -R :uwsgi /aboutme-django/aboutme/
