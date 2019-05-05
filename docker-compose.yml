@@ -5,7 +5,7 @@ services:
       context: .
     volumes:
       - django-static:/aboutme-django/static/
-      - django-media:/aboutme-django/aboutme/media
+      - django-media:/aboutme-django/aboutme/media/
     expose:
       - "8080"
     restart: always
