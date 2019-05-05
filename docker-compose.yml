@@ -3,10 +3,9 @@ services:
   aboutme-django:
     build:
       context: .
-      no-cache: true
     volumes:
       - django-static:/aboutme-django/static/
-      - django-media:/aboutme-django/aboutme/
+      - django-media:/aboutme-django/aboutme/media
     expose:
       - "8080"
     restart: always
