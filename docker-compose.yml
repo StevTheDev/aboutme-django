@@ -4,6 +4,7 @@ services:
     build: .
     volumes:
       - django-static:/aboutme-django/static/
+      - django-media:/aboutme-django/aboutme/
     expose:
       - "8080"
     restart: always
@@ -27,4 +28,5 @@ services:
 
 volumes:
   django-static:
+  django-media:
   database:
