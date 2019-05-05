@@ -1,7 +1,10 @@
 version: "3"
 services:
   aboutme-django:
-    build: . --no-cache
+    build:
+      context: .
+      args:
+        no-cache: true
     volumes:
       - django-static:/aboutme-django/static/
       - django-media:/aboutme-django/aboutme/
