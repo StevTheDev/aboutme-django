@@ -4,7 +4,7 @@ WORKDIR /aboutme-django/
 
 COPY . .
 
-RUN groupadd -r uwsgi && useradd -r -g uwsgi uwsgi && \
+RUN addgroup -S uwsgi && adduser -S -G uwsgi uwsgi && \
     pip install --no-cache-dir -r requirements.txt && \
     python ./aboutme/manage.py collectstatic && \
     chown -R :uwsgi /aboutme-django/aboutme/
