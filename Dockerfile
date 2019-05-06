@@ -9,7 +9,7 @@ RUN curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/dow
 
 EXPOSE 8080
 
-ENTRYPOINT [ "aboutme-django/entrypoint.sh" ]
+ENTRYPOINT [ "/aboutme-django/entrypoint.sh" ]
 
 RUN pip install --no-cache-dir -r requirements.txt && \
     python ./aboutme/manage.py collectstatic && \
