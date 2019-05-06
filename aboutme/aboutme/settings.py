@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os, shutil, string, secrets, yaml
 from django.core import management
 
-DEBUG = False
+DEBUG = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +40,7 @@ with open(config_path, 'r') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['stevthedev.com','3.14.206.140'] 
+ALLOWED_HOSTS = ['stevthedev.com','3.14.206.140','192.168.1.14'] 
 
 # Application definition
 
