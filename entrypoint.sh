@@ -5,6 +5,7 @@
 # fallback
 USER_ID=1000
 
+groupadd -g 1000
 useradd -u 1000 -g 1000 uwsgi
 
 exec /usr/local/bin/gosu uwsgi "$@"
