@@ -23,7 +23,7 @@ config_path = os.path.join('/','aboutme-django','config','django_secrets.yml')
 if not os.path.isfile(config_path):
     open(config_path,'a').close() # Create an empty file
     os.chmod(config_path,0o640) # Set permissions on file
-    shutil.chown(config_path,group='uwsgi')
+    # shutil.chown(config_path,group='uwsgi') # Should be running as non root by now
     with open(config_path, 'w') as config_file: # Write secret key
         letters = 'abcdefghijklmnopqrstuvwxyz'
         charset = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
