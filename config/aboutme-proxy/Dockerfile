@@ -6,7 +6,7 @@ COPY ./uwsgi-proxy.conf /etc/nginx/nginx.conf
 
 COPY ./entrypoint.sh /aboutme-proxy/entrypoint.sh
 
-RUN chmod +x /aboutme-django/entrypoint.sh
+RUN chmod +x /aboutme-proxy/entrypoint.sh
 
 ENTRYPOINT [ "/aboutme-proxy/entrypoint.sh" ]
 
