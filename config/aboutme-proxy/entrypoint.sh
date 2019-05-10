@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install certbot python-certbot-nginx
+apt-get install certbot python-certbot-nginx
