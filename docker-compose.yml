@@ -18,11 +18,11 @@ services:
       - database:/var/lib/postgresql/data
     
   aboutme-proxy:
-    image: nginx
+    build:
+      context: ./config/aboutme-proxy/
     ports:
       - "80:8000"
     volumes:
-      - ./config/uwsgi-proxy.conf:/etc/nginx/nginx.conf
       - django-static:/aboutme-django/static/
     depends_on:
       - aboutme-django
