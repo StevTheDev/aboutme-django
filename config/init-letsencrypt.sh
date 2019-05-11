@@ -1,7 +1,7 @@
 #!/bin/bash
 # Kudos Phillip https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
-domains=(stevthedev.com www.stevthedev.com)
+domains=(stevthedev.com)
 rsa_key_size=4096
 data_path="./config/certbot/"
 email="developer@stevthedev.com" # Adding a valid address is strongly recommended
@@ -25,6 +25,7 @@ fi
 
 echo "### Creating dummy certificate for $domains ..."
 path="/etc/letsencrypt/live/$domains"
+mkdir -p "$path"
 mkdir -p "$data_path/conf/live/$domains"
 docker-compose run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:1024 -days 1\
