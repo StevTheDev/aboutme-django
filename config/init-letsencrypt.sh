@@ -32,7 +32,7 @@ docker-compose run --rm --entrypoint "\
     -out '$path/fullchain.pem' \
     -subj '/CN=localhost'" aboutme-cert
 echo
-
+ 
 
 echo "### Starting nginx ..."
 docker-compose up --force-recreate -d aboutme-proxy
