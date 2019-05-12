@@ -35,8 +35,8 @@ echo
  
 
 echo "### Starting nginx ..."
-docker-compose up --force-recreate -d
-docker-compose up aboutme-django
+# docker-compose up --force-recreate -d
+docker-compose up -d aboutme-django
 docker-compose run -it aboutme-proxy bash
 echo
 
