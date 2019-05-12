@@ -36,6 +36,7 @@ services:
     volumes:
       - ./config/certbot/conf:/etc/letsencrypt
       - ./config/certbot/html:/var/www/certbot
+      - ./config/certbot/log/:/var/log/letsencrypt
     #entrypoint: 
     #  - "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
