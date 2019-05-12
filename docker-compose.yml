@@ -20,7 +20,7 @@ services:
   aboutme-proxy:
     image: nginx
     ports:
-      - "80:8000"
+      - "80:80"
     volumes:
       - django-static:/aboutme-django/static/
       - ./config/uwsgi-certbot-proxy.conf:/etc/nginx/nginx.conf
