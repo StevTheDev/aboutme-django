@@ -26,6 +26,7 @@ services:
       - ./config/uwsgi-certbot-proxy.conf:/etc/nginx/nginx.conf
       - ./config/certbot/conf:/etc/letsencrypt
       - ./config/certbot/html:/var/www/certbot
+      - ./config/nginx/log:/var/log/nginx
     depends_on:
       - aboutme-django
     #command: 
