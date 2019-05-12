@@ -35,7 +35,7 @@ echo
  
 
 echo "### Starting nginx ..."
-docker-compose up --force-recreate -d aboutme-proxy
+docker-compose up --force-recreate -d
 echo
 
 echo "### Deleting dummy certificate for $domains ..."
