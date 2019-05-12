@@ -37,7 +37,7 @@ echo
 echo "### Starting nginx ..."
 # docker-compose up --force-recreate -d
 docker-compose up -d aboutme-django
-docker-compose run -it aboutme-proxy bash
+docker-compose up -it aboutme-proxy bash
 echo
 
 echo "### Deleting dummy certificate for $domains ..."
