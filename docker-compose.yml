@@ -21,6 +21,7 @@ services:
     image: nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - django-static:/aboutme-django/static/
       - ./config/uwsgi-certbot-proxy.conf:/etc/nginx/nginx.conf
