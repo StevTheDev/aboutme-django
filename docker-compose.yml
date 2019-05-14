@@ -30,8 +30,6 @@ services:
       - ./config/nginx/log:/var/log/nginx
     depends_on:
       - aboutme-django
-    #command: 
-    # - "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   aboutme-cert:
     image: certbot/certbot
@@ -39,9 +37,6 @@ services:
       - ./config/certbot/conf:/etc/letsencrypt
       - ./config/certbot/html:/var/www/certbot
       - ./config/certbot/log/:/var/log/letsencrypt
-    #entrypoint: 
-    #  - "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-
 
 volumes:
   django-static:
