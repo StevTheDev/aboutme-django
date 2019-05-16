@@ -12,7 +12,8 @@ EXPOSE 8080
 
 ENTRYPOINT [ "/aboutme-django/entrypoint.sh" ]
 
-RUN pip install --no-cache-dir -r requirements.txt && \
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
     python ./aboutme/manage.py collectstatic
 
 CMD [ "uwsgi", "/aboutme-django/config/uWSGI.ini"]
