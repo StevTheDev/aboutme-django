@@ -3,8 +3,8 @@
     border-radius: 3px 3px 0px 0px;
 }
 
-.aboutme_banner {
-    height: 800px;
+.aboutme-body {
+    margin: 1rem;
 }
 
 .aboutme h1 {
