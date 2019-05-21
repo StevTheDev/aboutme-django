@@ -17,7 +17,7 @@ Articles Home
         {% for article in articles_list %}
         <tr>
             <td>
-                <a href= {% url 'view_article' article.id %} >{{article.title}} by {{ article.author }}</a>
+                <a href= {% url 'view_article' article.id %} >{{article.title}}</a>
             </td>
             <td>{{article.language}}</td>
         </tr>
